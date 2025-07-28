@@ -1,1 +1,1 @@
-# gimdz-protfolio
+# gimdz-portfolio
