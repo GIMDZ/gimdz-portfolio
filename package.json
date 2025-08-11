@@ -12,6 +12,7 @@
     "check-format": "prettier --check \"src/**/*.{js,jsx}\""
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@gsap/react": "^2.1.2",
     "@react-three/drei": "^10.6.1",
     "@react-three/fiber": "^9.2.0",
