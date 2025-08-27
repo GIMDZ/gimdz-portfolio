@@ -40,16 +40,23 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="flex-center section-padding">
+    <section id="contact" className="flex-center section-padding ">
       <div className="w-full h-full md:px-10 px-5">
         <TitleHeader
           title="Get in Touch – Let’s Connect"
           sub="💬 Have questions or ideas? Let’s talk! 🚀"
         />
         <div className="grid-12-cols mt-16">
-          <div className="xl:col-span-5">
-            <div className="flex-center card-border rounded-xl p-10">
-              <form ref={formRef} onSubmit={handleSubmit} className="w-full flex flex-col gap-7">
+          <div
+            className="xl:col-span-5 inset-0 bg-cover bg-center bg-no-repeat rounded-xl"
+            style={{ backgroundImage: "url('/images/contact1.webp')" }}
+          >
+            <div className="flex-center rounded-xl p-5 md:p-10  ">
+              <form
+                ref={formRef}
+                onSubmit={handleSubmit}
+                className="w-full flex flex-col gap-7 glass-dark rounded-xl p-5 md:p-10"
+              >
                 <div>
                   <label htmlFor="name">Your name</label>
                   <input
@@ -58,7 +65,7 @@ const Contact = () => {
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="What’s your good name?"
+                    placeholder="What’s your name?"
                     required
                   />
                 </div>

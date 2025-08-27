@@ -9,11 +9,18 @@ html,
 body {
     width: 100dvw;
     overflow-x: hidden;
-    background-color: black;
+    background-color: #111927;
+    background-image:
+            linear-gradient(rgba(17, 25, 40, 0.75), rgba(17, 25, 40, 0.75)),
+            url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-size: auto, 80px 80px;
     color: white;
     scroll-behavior: smooth;
     font-family: "Mona Sans", sans-serif;
 }
+
+
+
 
 section {
     width: 100dvw;
@@ -27,6 +34,11 @@ section {
     --color-black-200: #282732;
     --color-blue-50: #839cb5;
     --color-blue-100: #2d2d38;
+    --color-slate-800: #1e293b;
+    --color-slate-900: #0f172a;
+    --color-zinc-800: #27272a;
+    --color-zinc-850: #1f1f23;
+
 }
 
 @layer utilities {
@@ -36,6 +48,7 @@ section {
     .flex-col-center {
         @apply flex flex-col justify-center items-center;
     }
+
 }
 
 @layer components {
@@ -106,7 +119,12 @@ section {
         @apply fixed w-full left-1/2 py-5 px-5 md:px-20 -translate-x-1/2 z-[100] transition-all duration-300 ease-in-out;
 
         &.scrolled {
-            @apply top-0 bg-black;
+            @apply top-0;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(30, 41, 59, 0.6);
+            /*border: 1px solid rgba(255, 255, 255, 0.08);*/
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
         }
 
         &.not-scrolled {
@@ -145,7 +163,7 @@ section {
             @apply flex;
 
             .inner {
-                @apply px-5 py-2 rounded-lg bg-white text-black group-hover:bg-black-50 transition-colors duration-300;
+                @apply px-5 py-2 rounded-lg bg-white text-black group-hover:bg-blue-100 transition-colors duration-300;
 
                 span {
                     @apply group-hover:text-white transition-colors duration-300;
@@ -243,7 +261,7 @@ section {
     }
 
     .timeline {
-        @apply absolute z-30 h-[110%] -top-10 w-14 md:w-28 bg-black;
+        @apply absolute z-30 h-[110%] -top-10 w-14 md:w-28 bg-[#2D3240];
     }
 
     .timeline-logo {
@@ -428,6 +446,11 @@ section {
     z-index: 40;
     overflow: hidden;
     transition: border-color 1s ease-in-out;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .card::before {
@@ -463,8 +486,38 @@ section {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    filter: blur(10px);
-    filter: saturate(200);
+    filter: blur(10px) saturate(200);
+}
+.glass-light {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-dark {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-subtle {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+}
+
+.glass-strong {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
 }
 
 .card:hover::before {
