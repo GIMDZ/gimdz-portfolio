@@ -394,30 +394,36 @@ section {
     );
 }
 
-.gradient-edge:nth-of-type(1) {
-    left: 0;
-    background: rgb(0, 0, 0);
-    background: linear-gradient(
-            90deg,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(255, 255, 255, 0) 100%
-    );
-}
-.gradient-edge:nth-of-type(2) {
-    right: 0;
-    background: linear-gradient(
-            -90deg,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(255, 255, 255, 0) 100%
-    );
-}
+/*.gradient-edge:nth-of-type(1) {*/
+/*    left: 0;*/
+/*    background: rgb(17, 25, 39);*/
+/*    background: linear-gradient(*/
+/*            90deg,*/
+/*            rgba(17, 25, 39, 1) 0%,*/
+/*            rgba(255, 255, 255, 0) 100%*/
+/*    );*/
+/*}*/
+/*.gradient-edge:nth-of-type(2) {*/
+/*    right: 0;*/
+/*    background: linear-gradient(*/
+/*            -90deg,*/
+/*            rgba(17, 25, 39, 1) 0%,*/
+/*            rgba(255, 255, 255, 0) 100%*/
+/*    );*/
+/*}*/
+
 
 /* marquee */
 .marquee {
     width: 100dvw;
     overflow: hidden;
     position: relative;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
+
 }
+
+
 .marquee-box {
     display: flex;
     align-items: center;
@@ -438,6 +444,12 @@ section {
         left: -100%;
     }
 }
+
+
+
+
+
+
 /* marquee end */
 
 .card {

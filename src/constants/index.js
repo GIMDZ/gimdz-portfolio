@@ -37,37 +37,68 @@ const counterItems = [
 
 const logoIconsList = [
   {
-    imgPath: '/images/logos/company-logo-1.png',
+    name: 'S3. Amplify. Elastic Beanstalk.',
+    imgPath: '/images/logos/aws.svg',
   },
   {
-    imgPath: '/images/logos/company-logo-2.png',
+    name: 'Google Analytics',
+    imgPath: '/images/logos/analytics.svg',
   },
   {
-    imgPath: '/images/logos/company-logo-3.png',
+    name: 'Next.js',
+    imgPath: '/images/logos/next.svg',
   },
   {
-    imgPath: '/images/logos/company-logo-4.png',
+    name: 'React.js',
+    imgPath: '/images/logos/react.svg',
   },
   {
-    imgPath: '/images/logos/company-logo-5.png',
+    name: 'Three.js',
+    imgPath: '/images/logos/threejs.svg',
   },
   {
-    imgPath: '/images/logos/company-logo-6.png',
+    name: 'Sass',
+    imgPath: '/images/logos/sass.svg',
   },
   {
-    imgPath: '/images/logos/company-logo-7.png',
+    name: 'Git',
+    imgPath: '/images/logos/git.svg',
   },
   {
-    imgPath: '/images/logos/company-logo-8.png',
+    name: 'Figma',
+    imgPath: '/images/logos/figma.svg',
   },
   {
-    imgPath: '/images/logos/company-logo-9.png',
+    name: 'TailwindCSS',
+    imgPath: '/images/logos/tailwind.svg',
   },
   {
-    imgPath: '/images/logos/company-logo-10.png',
+    name: 'JavaScript',
+    imgPath: '/images/logos/javascript.svg',
   },
   {
-    imgPath: '/images/logos/company-logo-11.png',
+    name: 'TypeScript',
+    imgPath: '/images/logos/typescript.svg',
+  },
+  {
+    name: 'HTML',
+    imgPath: '/images/logos/html.svg',
+  },
+  {
+    name: 'CSS',
+    imgPath: '/images/logos/css.svg',
+  },
+  {
+    name: 'Bootstrap',
+    imgPath: '/images/logos/bootstrap.svg',
+  },
+  {
+    name: 'Ant Design',
+    imgPath: '/images/logos/antd.svg',
+  },
+  {
+    name: 'GSAP',
+    imgPath: '/images/logos/gsap.svg',
   },
 ];
 
@@ -152,7 +183,7 @@ const expCards = [
     imgPath: '/images/exp1.png',
     logoPath: '/images/logos/fresco.png',
     title: 'Frontend Developer',
-    date: 'October 2022 - Present',
+    date: 'December 2022 - Present',
     responsibilities: [
       'Develop and maintain websites using Three.js, Sass, GSAP, Next.js, React.js, TailwindCSS, and TypeScript.',
       'Collaborated closely with UI/UX designers to ensure seamless user experiences.',
@@ -162,13 +193,15 @@ const expCards = [
       'Create and launch Webflow websites for client projects, ensuring responsive design and smooth user experience.',
       'Build and optimize 3D configurators and viewers for web applications, including modifying existing configurators on Shopify stores to add products and update the custom UI.',
       'Improve website performance and SEO, and configure Google Analytics to track user behavior and optimize content strategy.',
+      'Improved app performance and user experience through code optimization and testing.',
+      'Coordinated with the product team to implement features based on feedback.',
     ],
   },
   {
     id: 2,
     review: '',
     imgPath: '/images/exp2.png',
-    logoPath: '/images/logos/pharol_logo.jpg',
+    logoPath: '/images/logos/pharol_logo-removebg-preview.png',
     title: 'Frontend Developer',
     date: 'October 2024 - February 2025',
     responsibilities: [
@@ -182,13 +215,16 @@ const expCards = [
     review:
       'Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.',
     imgPath: '/images/exp3.png',
-    logoPath: '/images/logo3.png',
-    title: 'React Native Developer',
-    date: 'March 2019 - May 2020',
+    logoPath: '/images/logos/errepar_logo-removebg-preview.png',
+    title: 'Frontend Developer',
+    date: 'December 2022 - September 2024',
     responsibilities: [
-      "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
-      'Improved app performance and user experience through code optimization and testing.',
+      'Delivered 100+ website updates via Jira and tickets, maintaining consistent UX and meeting deadlines.',
+      'Developed new site features with React.js, JavaScript, and Teamsite.',
+      'Explored and implemented new tools to enhance the user experience, such as a summarization tool using OpenAI API.',
+      'Review designs on Figma and translate them into functional pages.',
       'Coordinated with the product team to implement features based on feedback.',
+      'Update and maintain pages on Sharepoint and OpenText using React, HTML, CSS and Bootstrap 5.',
     ],
   },
   {
@@ -196,27 +232,28 @@ const expCards = [
     review:
       'Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.',
     imgPath: '/images/exp3.png',
-    logoPath: '/images/logo3.png',
-    title: 'React Native Developer',
-    date: 'March 2019 - May 2020',
+    logoPath: '/images/logos/accionait.png',
+    title: 'Frontend Developer',
+    date: 'May 2021 - December 2022',
     responsibilities: [
-      "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
-      'Improved app performance and user experience through code optimization and testing.',
-      'Coordinated with the product team to implement features based on feedback.',
+      'Investigated and addressed issues reported through a ticketing system for existing products',
+      'Improved web performance and user experience through code optimization and testing.',
+      'Utilize Jira to manage and track assignments for new products.',
+      'Implemented improvements on existing websites using HTML, CSS, Javascript, Bootstrap, Sass, and Sharepoint.',
     ],
   },
   {
     id: 5,
-    review:
-      'Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.',
+    review: '',
     imgPath: '/images/exp3.png',
-    logoPath: '/images/logo3.png',
+    logoPath: '/images/logos/quantiasa_logo-removebg-preview.png',
     title: 'Electrical Engineer / Frontend Developer',
     date: 'December 2016 - May 2021',
     responsibilities: [
       'Designed Industry 4.0 dashboards for production monitoring.',
       'Created technical documentation for operation and maintenance of industrial systems.',
       'Provided post-sale technical support for proprietary software.',
+      'Designed, implemented, and maintained a WordPress website to increase the company’s online presence',
     ],
   },
 ];
