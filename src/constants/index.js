@@ -184,6 +184,8 @@ const expCards = [
     logoPath: '/images/logos/fresco.png',
     title: 'Frontend Developer',
     date: 'December 2022 - Present',
+    glowColor: 'rgba(196, 204, 31, 0.3)', // Fresco lime-green
+    borderGradient: 'from-lime-400 via-green-400 to-emerald-400',
     responsibilities: [
       'Develop and maintain websites using Three.js, Sass, GSAP, Next.js, React.js, TailwindCSS, and TypeScript.',
       'Collaborated closely with UI/UX designers to ensure seamless user experiences.',
@@ -204,6 +206,8 @@ const expCards = [
     logoPath: '/images/logos/pharol_logo-removebg-preview.png',
     title: 'Frontend Developer',
     date: 'October 2024 - February 2025',
+    glowColor: 'rgba(251, 146, 60, 0.3)', // Orange for Pharol
+    borderGradient: 'from-orange-400 via-amber-400 to-yellow-400',
     responsibilities: [
       'Maintained and updated GitLab repositories using Sass, React.js, and Ant Design.',
       'Worked with backend engineers to define and request necessary API endpoints to integrate it seamlessly with the frontend.',
@@ -218,6 +222,8 @@ const expCards = [
     logoPath: '/images/logos/errepar_logo-removebg-preview.png',
     title: 'Frontend Developer',
     date: 'December 2022 - September 2024',
+    glowColor: 'rgba(33, 81, 126, 0.3)', // Errepar blue
+    borderGradient: 'from-blue-400 via-cyan-400 to-teal-400',
     responsibilities: [
       'Delivered 100+ website updates via Jira and tickets, maintaining consistent UX and meeting deadlines.',
       'Developed new site features with React.js, JavaScript, and Teamsite.',
@@ -235,6 +241,8 @@ const expCards = [
     logoPath: '/images/logos/accionait.png',
     title: 'Frontend Developer',
     date: 'May 2021 - December 2022',
+    glowColor: 'rgba(239, 68, 68, 0.3)', // Red for AccionaIT
+    borderGradient: 'from-red-400 via-rose-400 to-pink-400',
     responsibilities: [
       'Investigated and addressed issues reported through a ticketing system for existing products',
       'Improved web performance and user experience through code optimization and testing.',
@@ -249,6 +257,8 @@ const expCards = [
     logoPath: '/images/logos/quantiasa_logo-removebg-preview.png',
     title: 'Electrical Engineer / Frontend Developer',
     date: 'December 2016 - May 2021',
+    glowColor: 'rgba(11, 167, 148, 0.3)', // Teal for Quantiasa
+    borderGradient: 'from-teal-400 via-emerald-400 to-green-400',
     responsibilities: [
       'Designed Industry 4.0 dashboards for production monitoring.',
       'Created technical documentation for operation and maintenance of industrial systems.',

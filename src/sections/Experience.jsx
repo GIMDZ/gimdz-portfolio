@@ -4,133 +4,146 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import { expCards } from '../constants';
 import TitleHeader from '../components/TitleHeader';
-import GlowCard from '../components/GlowCard';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Experience = () => {
   useGSAP(() => {
-    // Loop through each timeline card and animate them in
-    // as the user scrolls to each card
-    gsap.utils.toArray('.timeline-card').forEach((card) => {
-      // Animate the card coming in from the left
-      // and fade in
+    // Fade in cards instead of slide
+    gsap.utils.toArray('.exp-card').forEach((card) => {
       gsap.from(card, {
-        // Move the card in from the left
-        xPercent: -100,
-        // Make the card invisible at the start
         opacity: 0,
-        // Set the origin of the animation to the left side of the card
-        transformOrigin: 'left left',
-        // Animate over 1 second
+        y: 50, // Small upward movement
         duration: 1,
-        // Use a power2 ease-in-out curve
-        ease: 'power2.inOut',
-        // Trigger the animation when the card is 80% of the way down the screen
+        ease: 'power2.out',
         scrollTrigger: {
-          // The card is the trigger element
           trigger: card,
-          // Trigger the animation when the card is 80% down the screen
           start: 'top 80%',
         },
       });
     });
 
-    // Animate the timeline height as the user scrolls
-    // from the top of the timeline to 70% down the screen
-    // The timeline height should scale down from 1 to 0
-    // as the user scrolls up the screen
-    gsap.to('.timeline', {
-      // Set the origin of the animation to the bottom of the timeline
-      transformOrigin: 'bottom bottom',
-      // Animate the timeline height over 1 second
-      ease: 'power1.inOut',
-      // Trigger the animation when the timeline is at the top of the screen
-      // and end it when the timeline is at 70% down the screen
-      scrollTrigger: {
-        trigger: '.timeline',
-        start: 'top center',
-        end: '70% center',
-        // Update the animation as the user scrolls
-        onUpdate: (self) => {
-          // Scale the timeline height as the user scrolls
-          // from 1 to 0 as the user scrolls up the screen
-          gsap.to('.timeline', {
-            scaleY: 1 - self.progress,
-          });
-        },
-      },
-    });
-
-    // Loop through each expText element and animate them in
-    // as the user scrolls to each text element
-    gsap.utils.toArray('.expText').forEach((text) => {
-      // Animate the text opacity from 0 to 1
-      // and move it from the left to its final position
-      // over 1 second with a power2 ease-in-out curve
-      gsap.from(text, {
-        // Set the opacity of the text to 0
+    // Animate timeline logos
+    gsap.utils.toArray('.timeline-logo').forEach((logo) => {
+      gsap.from(logo, {
+        scale: 0,
         opacity: 0,
-        // Move the text from the left to its final position
-        // (xPercent: 0 means the text is at its final position)
-        xPercent: 0,
-        // Animate over 1 second
-        duration: 1,
-        // Use a power2 ease-in-out curve
-        ease: 'power2.inOut',
-        // Trigger the animation when the text is 60% down the screen
+        duration: 0.6,
+        ease: 'back.out(1.7)',
         scrollTrigger: {
-          // The text is the trigger element
-          trigger: text,
-          // Trigger the animation when the text is 60% down the screen
-          start: 'top 60%',
+          trigger: logo,
+          start: 'top 70%',
         },
       });
-    }, '<'); // position parameter - insert at the start of the animation
+    });
   }, []);
 
   return (
-    <section id="experience" className="flex-center md:mt-40 mt-20 section-padding xl:px-0">
-      <div className="w-full h-full md:px-20 px-5">
+    <section id="experience" className="flex-center md:mt-40 mt-20 section-padding">
+      <div className="w-full h-full max-w-7xl mx-auto">
         <TitleHeader title="Professional Work Experience" sub="💼 My Career Overview" />
+
         <div className="mt-32 relative">
-          <div className="relative z-50 xl:space-y-32 space-y-10">
-            {expCards.map((card) => (
-              <div key={card.id} className="exp-card-wrapper">
-                <div className="xl:w-2/6">
-                  <GlowCard card={card}>
-                    <div>
-                      <img src={card.imgPath} alt={card.title} />
-                    </div>
-                  </GlowCard>
-                </div>
-                <div className="xl:w-4/6">
-                  <div className="flex items-start">
-                    <div className="timeline-wrapper">
-                      <div className="timeline" />
-                      <div className="gradient-line w-1 h-full" />
-                    </div>
-                    <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
-                      <div className="timeline-logo">
-                        <img src={card.logoPath} alt="logo" />
+          {/* Central Timeline */}
+          <div className="absolute left-1/2 top-0 -translate-x-1/2 h-full flex justify-center z-10">
+            <div className="gradient-line h-full"></div>
+          </div>
+
+          {/* Experience Cards in Zigzag */}
+          <div className="space-y-16 md:space-y-24">
+            {expCards.map((card, index) => {
+              const isLeft = index % 2 === 0;
+
+              return (
+                <div key={card.id} className="relative">
+                  {/* Timeline Logo with company-specific glow */}
+                  <div
+                    className="timeline-logo absolute left-1/2 top-8 -translate-x-1/2 z-20 group cursor-pointer"
+                    style={{
+                      boxShadow: 'none',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.boxShadow = `0 0 20px ${card.glowColor}`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                  >
+                    <img
+                      src={card.logoPath}
+                      alt="logo"
+                      className="w-full h-full object-contain rounded-full p-2 group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+
+                  {/* Experience Content */}
+                  <div
+                    className={`
+                    grid md:grid-cols-2 gap-8 items-start
+                    exp-card
+                  `}
+                  >
+                    {/* Content Side */}
+                    <div className={`${isLeft ? 'order-1' : 'order-2'}`}>
+                      <div
+                      // className={`
+                      //   relative group cursor-pointer rounded-xl p-6 md:p-8
+                      //   ${!isLeft ? 'md:ml-8' : 'md:mr-8'}
+                      //   bg-gradient-to-br from-slate-900 to-slate-800
+                      //   border border-slate-700 hover:border-slate-600
+                      //   transition-all duration-500 shadow-lg
+                      // `}
+                      // style={{
+                      //   boxShadow: 'none',
+                      // }}
+                      // onMouseEnter={(e) => {
+                      //   e.currentTarget.style.boxShadow = `0 0 40px ${card.glowColor}`;
+                      // }}
+                      // onMouseLeave={(e) => {
+                      //   e.currentTarget.style.boxShadow = 'none';
+                      // }}
+                      >
+                        {/* Gradient border effect */}
+                        {/*<div*/}
+                        {/*  className={`absolute inset-0 rounded-xl bg-gradient-to-r ${card.borderGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-sm`}*/}
+                        {/*></div>*/}
+
+                        <h1 className="font-semibold text-2xl md:text-3xl text-white mb-2 ">
+                          {card.title}
+                        </h1>
+
+                        <p className="text-white-50 mb-4 flex items-center gap-2 group-hover:text-white transition-colors duration-300">
+                          🗓️ {card.date}
+                        </p>
+
+                        <div>
+                          <p className="text-[#839CB5] italic mb-4 ">Key Responsibilities</p>
+                          <ul className="space-y-3 text-white-50 group-hover:text-white transition-colors duration-300">
+                            {card.responsibilities.map((responsibility, idx) => (
+                              <li key={idx} className="flex items-start gap-3">
+                                <span
+                                  className={`text-white mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                                >
+                                  •
+                                </span>
+                                <span className="text-sm md:text-base leading-relaxed">
+                                  {responsibility}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                      <div>
-                        <h1 className="font-semibold text-3xl">{card.title}</h1>
-                        <p className="my-5 text-white-50">🗓️&nbsp;{card.date}</p>
-                        <p className="text-[#839CB5] italic">Responsibilities</p>
-                        <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white-50">
-                          {card.responsibilities.map((responsibility, index) => (
-                            <li key={index} className="text-lg">
-                              {responsibility}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                    </div>
+
+                    {/* Empty Side for spacing */}
+                    <div className={`${isLeft ? 'order-2' : 'order-1'} hidden md:block`}>
+                      {/* This creates the spacing for the zigzag effect */}
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
