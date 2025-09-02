@@ -330,24 +330,16 @@ const testimonials = [
 
 const socialImgs = [
   {
-    name: 'insta',
-    url: 'https://www.instagram.com/',
-    imgPath: '/images/insta.png',
-  },
-  {
-    name: 'fb',
-    url: 'https://www.facebook.com/',
-    imgPath: '/images/fb.png',
-  },
-  {
-    name: 'x',
-    url: 'https://www.x.com/',
-    imgPath: '/images/x.png',
-  },
-  {
     name: 'linkedin',
-    url: 'https://www.linkedin.com/',
-    imgPath: '/images/linkedin.png',
+    url: 'https://www.linkedin.com/in/gianninaminano/',
+    imgPath: '/images/logos/linkedin.svg',
+    glowColor: 'rgba(10, 102, 194, 0.4)',
+  },
+  {
+    name: 'github',
+    url: 'https://github.com/GIMDZ',
+    imgPath: '/images/logos/github.svg',
+    glowColor: 'rgba(255,255,255,0.4)',
   },
 ];
 

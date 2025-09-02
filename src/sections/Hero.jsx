@@ -46,7 +46,7 @@ const Hero = () => {
               <h1>that Deliver Results</h1>
             </div>
 
-            <p className="md:text-xl relative z-10 text-white-50 pointer-events-none">
+            <p className="md:text-xl relative z-10 text-white-50 pointer-events-none xl:max-w-1/2">
               Hi, I'm <span className="text-white">Giannina</span>, a Frontend Developer based in
               Argentina with a passion for crafting exceptional digital experiences.
             </p>
@@ -56,7 +56,7 @@ const Hero = () => {
         </header>
 
         <figure>
-          <div className="hero-3d-layout">
+          <div className="hero-3d-layout ">
             <HeroExperience />
           </div>
         </figure>
