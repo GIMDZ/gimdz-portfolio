@@ -22,6 +22,9 @@ body {
 .r3f
 {
     touch-action: none;
+    width: 100% !important;
+    height: 100% !important;
+
 }
 
 .htmlScreen iframe
