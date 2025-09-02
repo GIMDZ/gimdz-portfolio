@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Canvas } from '@react-three/fiber';
 import Project1 from '../components/Project1';
+import ContactExperience from '../components/models/Contact/ContactExperience.jsx';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,20 +45,23 @@ const ShowcaseSection = () => {
       <div>
         <div className="showcaselayout">
           <div className="first-project-wrapper" ref={project1Ref}>
-            <div className="image-wrapper">
-              <Canvas
-                className="r3f rounded-2xl"
-                camera={{
-                  fov: 45,
-                  near: 0.1,
-                  far: 2000,
-                  position: [-3, 1.5, 4],
-                }}
-              >
-                <Project1 />
-              </Canvas>
-              {/*<img src="/images/project1.png" alt="Ryde" />*/}
+            <div className=" image-wrapper">
+              <Project1 />
             </div>
+            {/*<div className="image-wrapper">*/}
+            {/*  <Canvas*/}
+            {/*    className="r3f rounded-2xl"*/}
+            {/*    camera={{*/}
+            {/*      fov: 45,*/}
+            {/*      near: 0.1,*/}
+            {/*      far: 2000,*/}
+            {/*      position: [-3, 1.5, 4],*/}
+            {/*    }}*/}
+            {/*  >*/}
+            {/*    <Project1 />*/}
+            {/*  </Canvas>*/}
+            {/*  /!*<img src="/images/project1.png" alt="Ryde" />*!/*/}
+            {/*</div>*/}
             <div className="text-content">
               <h2>On-Demand Rides Made Simple with a Powerful, User-Friendly App called Ryde</h2>
               <p className="text-white-50 md:text-xl">

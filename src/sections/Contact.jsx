@@ -2,7 +2,8 @@ import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 import TitleHeader from '../components/TitleHeader';
-import ContactExperience from '../components/models/Contact/ContactExperience';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+// import ContactExperience from '../components/models/Contact/ContactExperience';
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -41,14 +42,14 @@ const Contact = () => {
 
   return (
     <section id="contact" className="flex-center section-padding ">
-      <div className="w-full h-full md:px-10 px-5">
+      <div className="w-full h-full  xl:pl-40 px-5">
         <TitleHeader
           title="Get in Touch – Let’s Connect"
           sub="💬 Have questions or ideas? Let’s talk! 🚀"
         />
-        <div className="grid-12-cols mt-16">
+        <div className="grid-12-cols mt-16  ">
           <div
-            className="xl:col-span-5 inset-0 bg-cover bg-center bg-no-repeat rounded-xl"
+            className=" xl:col-span-6 inset-0 bg-cover bg-center bg-no-repeat rounded-xl"
             style={{ backgroundImage: "url('/images/contact1.webp')" }}
           >
             <div className="flex-center rounded-xl p-5 md:p-10  ">
@@ -108,9 +109,14 @@ const Contact = () => {
               </form>
             </div>
           </div>
-          <div className="xl:col-span-7 min-h-96">
-            <div className="bg-[#cd7c2e] w-full h-full hover:cursor-grab rounded-3xl overflow-hidden">
-              <ContactExperience />
+          <div className="xl:col-span-6 min-h-96 flex-center rounded-xl  ">
+            <div className=" overflow-hidden">
+              <DotLottieReact
+                src="https://lottie.host/0408e1cb-8d55-460c-bae2-593759929076/NOtTIxCqjf.lottie"
+                loop
+                autoplay
+              />
+              {/*<ContactExperience />*/}
             </div>
           </div>
         </div>

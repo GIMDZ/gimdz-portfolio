@@ -7,13 +7,22 @@ import {
   useGLTF,
 } from '@react-three/drei';
 
+import { Canvas } from '@react-three/fiber';
+
 export default function Experience() {
   const computer = useGLTF(
     'https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf'
   );
 
   return (
-    <>
+    <Canvas
+      camera={{
+        fov: 45,
+        near: 0.1,
+        far: 2000,
+        position: [-3, 1.5, 4],
+      }}
+    >
       <color args={['#64748B']} attach="background" />
 
       <Environment preset="city" />
@@ -65,6 +74,6 @@ export default function Experience() {
       </PresentationControls>
 
       <ContactShadows position-y={-1.4} opacity={0.4} scale={5} blur={2.4} />
-    </>
+    </Canvas>
   );
 }
