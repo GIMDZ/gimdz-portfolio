@@ -1,11 +1,11 @@
 import Hero from './sections/Hero';
 import ShowcaseSection from './sections/ShowcaseSection.jsx';
-import Navbar from './components/Navbar';
-import LogoShowcase from './sections/LogoShowcase';
+import Navbar from './components/NavBar.jsx';
+
 import FeatureCards from './sections/FeatureCards';
 import Experience from './sections/Experience';
 import TechStack from './sections/TechStack';
-import Testimonials from './sections/Testimonials';
+// import Testimonials from './sections/Testimonials';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
 
