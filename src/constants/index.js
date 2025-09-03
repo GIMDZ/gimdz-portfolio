@@ -32,7 +32,6 @@ const counterItems = [
   { value: 5, suffix: '+', label: 'Years of Experience' },
   { value: 100, suffix: '+', label: 'Website Updates Delivered' },
   { value: 50, suffix: '+', label: 'Completed Projects' },
-  { value: 95, suffix: '%', label: 'Client Satisfaction Rate' },
 ];
 
 const logoIconsList = [
@@ -120,6 +119,33 @@ const abilities = [
   },
 ];
 
+const projects = [
+  {
+    id: 2,
+    title: "PolyJoule's Website",
+    image: '/images/project4.png',
+    url: 'https://www.polyjoule.com/',
+    techStack: [
+      { name: 'Webflow', icon: '/images/logos/react.svg' },
+      { name: 'HTML', icon: '/images/logos/next.svg' },
+      { name: 'CSS', icon: '/images/logos/tailwind.svg' },
+      { name: 'JavaScript', icon: '/images/logos/typescript.svg' },
+    ],
+  },
+  {
+    id: 3,
+    title: '3D Bike Configurator',
+    image: '/images/project5.png',
+    url: 'https://www.fresco-design.com/3d-bike-configurator',
+    techStack: [
+      { name: 'Three.js', icon: '/images/logos/threejs.svg' },
+      { name: 'React', icon: '/images/logos/react.svg' },
+      { name: 'Tailwind', icon: '/images/logos/tailwind.svg' },
+      { name: 'JavaScript', icon: '/images/logos/javascript.svg' },
+    ],
+  },
+];
+
 const techStackImgs = [
   {
     name: 'React Developer',
@@ -182,7 +208,7 @@ const expCards = [
     review: '',
     imgPath: '/images/exp1.png',
     logoPath: '/images/logos/fresco.png',
-    title: 'Frontend Developer',
+    title: 'Web Developer',
     date: 'December 2022 - Present',
     glowColor: 'rgba(196, 204, 31, 0.3)', // Fresco lime-green
     borderGradient: 'from-lime-400 via-green-400 to-emerald-400',
@@ -257,7 +283,7 @@ const expCards = [
     logoPath: '/images/logos/quantiasa_logo-removebg-preview.png',
     title: 'Electrical Engineer / Frontend Developer',
     date: 'December 2016 - May 2021',
-    glowColor: 'rgba(11, 167, 148, 0.3)', // Teal for Quantiasa
+    glowColor: 'rgba(239, 68, 68, 0.3)', // Teal for Quantiasa
     borderGradient: 'from-teal-400 via-emerald-400 to-green-400',
     responsibilities: [
       'Designed Industry 4.0 dashboards for production monitoring.',
@@ -355,4 +381,5 @@ export {
   techStackIcons,
   techStackImgs,
   navLinks,
+  projects,
 };

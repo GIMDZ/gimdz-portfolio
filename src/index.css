@@ -24,6 +24,9 @@ body {
     touch-action: none;
     width: 100% !important;
     height: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+
 
 }
 
@@ -193,6 +196,10 @@ section {
         .showcaselayout {
             @apply flex xl:flex-row flex-col gap-10 justify-between;
         }
+        .showcase-3d-layout {
+            @apply  w-full h-full md:min-h-[50vh] absolute ;
+        }
+
 
         .first-project-wrapper {
             @apply h-full flex flex-col justify-between xl:w-[60%];

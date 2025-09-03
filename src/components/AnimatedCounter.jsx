@@ -5,10 +5,10 @@ import CountUp from 'react-countup';
 const AnimatedCounter = () => {
   return (
     <div id="counter" className="padding-x-lg xl:mt-0 mt-32">
-      <div className="mx-auto grid-4-cols">
+      <div className="mx-auto grid-3-cols">
         {counterItems.map((item) => (
           <div key={item.label} className="rounded-lg flex flex-col justify-center p-10 ">
-            <div className="counter-number text-white text-5xl font-bold mb-2">
+            <div className="counter-number text-white text-5xl lg:text-6xl font-bold mb-2 ">
               <CountUp suffix={item.suffix} end={item.value} duration={2} enableScrollSpy={true} />
             </div>
             <div className=" text-white-50 text-lg ">{item.label}</div>

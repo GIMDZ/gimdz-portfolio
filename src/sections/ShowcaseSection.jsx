@@ -1,10 +1,9 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { Canvas } from '@react-three/fiber';
 import Project1 from '../components/Project1';
-import ContactExperience from '../components/models/Contact/ContactExperience.jsx';
+import { projects } from '../constants';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,14 +13,18 @@ const ShowcaseSection = () => {
   const project2Ref = useRef(null);
   const project3Ref = useRef(null);
 
+  const handleProjectClick = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   useGSAP(() => {
     gsap.fromTo(
       sectionRef.current,
       { opacity: 0 },
       { opacity: 1, duration: 1.5, ease: 'power2.inOut' }
     );
-    const projects = [project1Ref.current, project2Ref.current, project3Ref.current];
-    projects.forEach((card, index) => {
+    const projectRefs = [project1Ref.current, project2Ref.current, project3Ref.current];
+    projectRefs.forEach((card, index) => {
       gsap.fromTo(
         card,
         { opacity: 0, y: 50 },
@@ -44,26 +47,22 @@ const ShowcaseSection = () => {
     <section id="work" ref={sectionRef} className="app-showcase">
       <div>
         <div className="showcaselayout">
-          <div className="first-project-wrapper" ref={project1Ref}>
-            <div className=" image-wrapper">
-              <Project1 />
+          <div
+            className="first-project-wrapper cursor-pointer transition-all duration-300 hover:text-blue-50
+"
+            ref={project1Ref}
+            onClick={() => handleProjectClick('https://www.fresco-design.com/')}
+          >
+            <div className="image-wrapper ">
+              <figure>
+                <div className="showcase-3d-layout">
+                  <Project1 />
+                </div>
+              </figure>
             </div>
-            {/*<div className="image-wrapper">*/}
-            {/*  <Canvas*/}
-            {/*    className="r3f rounded-2xl"*/}
-            {/*    camera={{*/}
-            {/*      fov: 45,*/}
-            {/*      near: 0.1,*/}
-            {/*      far: 2000,*/}
-            {/*      position: [-3, 1.5, 4],*/}
-            {/*    }}*/}
-            {/*  >*/}
-            {/*    <Project1 />*/}
-            {/*  </Canvas>*/}
-            {/*  /!*<img src="/images/project1.png" alt="Ryde" />*!/*/}
-            {/*</div>*/}
+
             <div className="text-content">
-              <h2>On-Demand Rides Made Simple with a Powerful, User-Friendly App called Ryde</h2>
+              <h2>Beautiful & Modern Design Studio Website with Stunning Visual Identity</h2>
               <p className="text-white-50 md:text-xl">
                 {' '}
                 A site built with NextJS, TypeScript, & Tailwind CSS for a fast user-friendly
@@ -72,18 +71,35 @@ const ShowcaseSection = () => {
             </div>
           </div>
           <div className="project-list-wrapper overflow-hidden">
-            <div className="project" ref={project2Ref}>
-              <div className="image-wrapper bg-[#FFEFDB]">
-                <img src="/images/project4.png" alt="Library Management Platform" />
+            {projects.map((project, index) => (
+              <div
+                key={project.id}
+                className="project cursor-pointer transition-all duration-300 hover:text-blue-50"
+                ref={index === 0 ? project2Ref : project3Ref}
+                onClick={() => handleProjectClick(project.url)}
+              >
+                <div className="image-wrapper bg-[#FFEFDB] relative overflow-hidden">
+                  <img
+                    className="transition-transform duration-300 ease-out hover:scale-105"
+                    src={project.image}
+                    alt={project.title}
+                  />
+
+                  {/* Tech Stack Labels */}
+                  <div className="absolute top-3 left-3 flex flex-wrap gap-2">
+                    {project.techStack.map((tech, techIndex) => (
+                      <div
+                        key={techIndex}
+                        className="glass-subtle px-2 py-1 rounded-lg flex items-center gap-1 text-white text-xs"
+                      >
+                        <span>{tech.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <h2>{project.title}</h2>
               </div>
-              <h2>PolyJoule's Website</h2>
-            </div>
-            <div className="project" ref={project3Ref}>
-              <div className="image-wrapper bg-[#FFEFDB]">
-                <img src="/images/project5.png" alt="YC Directory" />
-              </div>
-              <h2>3D Bike Configurator</h2>
-            </div>
+            ))}
           </div>
         </div>
       </div>

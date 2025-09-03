@@ -47,9 +47,9 @@ const Contact = () => {
           title="Get in Touch – Let’s Connect"
           sub="💬 Have questions or ideas? Let’s talk! 🚀"
         />
-        <div className="grid-12-cols mt-16  ">
+        <div className="grid-12-cols mt-16 items-center ">
           <div
-            className=" xl:col-span-6 inset-0 bg-cover bg-center bg-no-repeat rounded-xl"
+            className=" xl:col-span-6 2xl:col-span-5 inset-0 bg-cover bg-center bg-no-repeat rounded-xl"
             style={{ backgroundImage: "url('/images/contact1.webp')" }}
           >
             <div className="flex-center rounded-xl p-5 md:p-10  ">
@@ -109,7 +109,7 @@ const Contact = () => {
               </form>
             </div>
           </div>
-          <div className="xl:col-span-6 min-h-96 flex-center rounded-xl  ">
+          <div className="xl:col-span-6 2xl:col-span-6 min-h-96 rounded-xl  ">
             <div className=" overflow-hidden">
               <DotLottieReact
                 src="https://lottie.host/0408e1cb-8d55-460c-bae2-593759929076/NOtTIxCqjf.lottie"
