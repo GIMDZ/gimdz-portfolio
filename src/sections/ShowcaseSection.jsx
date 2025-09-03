@@ -51,7 +51,6 @@ const ShowcaseSection = () => {
             className="first-project-wrapper cursor-pointer transition-all duration-300 hover:text-blue-50
 "
             ref={project1Ref}
-            onClick={() => handleProjectClick('https://www.fresco-design.com/')}
           >
             <div className="image-wrapper ">
               <figure>
@@ -61,7 +60,10 @@ const ShowcaseSection = () => {
               </figure>
             </div>
 
-            <div className="text-content">
+            <div
+              className="text-content"
+              onClick={() => handleProjectClick('https://www.fresco-design.com/')}
+            >
               <h2>Beautiful & Modern Design Studio Website with Stunning Visual Identity</h2>
               <p className="text-white-50 md:text-xl">
                 {' '}
