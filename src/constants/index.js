@@ -27,7 +27,7 @@ const words = [
 const counterItems = [
   { value: 5, suffix: '+', label: 'Years of Experience' },
   { value: 100, suffix: '+', label: 'Website Updates Delivered' },
-  { value: 50, suffix: '+', label: 'Completed Projects' },
+  { value: 20, suffix: '+', label: 'Completed Projects' },
 ];
 
 const logoIconsList = [
