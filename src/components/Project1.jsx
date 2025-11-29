@@ -12,9 +12,8 @@ import { useMediaQuery } from 'react-responsive';
 import { useMemo } from 'react';
 
 export default function Project1() {
-  const computer = useGLTF(
-    'https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf'
-  );
+  // Load local model from the public/models folder instead of remote URL
+  const computer = useGLTF('/models/macbook-14-transformed.glb');
 
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
@@ -25,37 +24,46 @@ export default function Project1() {
   const responsiveValues = useMemo(() => {
     if (is4K) {
       return {
-        distanceFactor: 1.4,
-        position: [-0.3, 1.56, -1.4],
-        iframeScale: 0.8,
+        // Slightly smaller iframe scaling because Html will also scale with the model
+        distanceFactor: 1.35,
+        // Multiplied position by 10
+        position: [-1.5, 10.8, -19],
+        // Multiplied iframeScale by 10
+        iframeScale: 10,
+        // Reduced model scale by 10
+        modelScale: 0.086,
       };
     }
     if (isLargeScreen) {
       return {
-        distanceFactor: 1.25,
-        position: [0, 1.56, -1.4],
-        iframeScale: 0.92,
+        distanceFactor: 1.38,
+        position: [1.7, 10, -19],
+        iframeScale: 10,
+        modelScale: 0.086,
       };
     }
     if (isTablet && !isMobile) {
       return {
         distanceFactor: 1.45,
-        position: [0, 1.56, -1.4],
-        iframeScale: 0.8,
+        position: [1.7, 10, -19],
+        iframeScale: 9.5,
+        modelScale: 0.086,
       };
     }
     if (isMobile) {
       return {
         distanceFactor: 1.6,
-        position: [0, 1.36, -1.4],
-        iframeScale: 0.7,
+        position: [2, 7.85, -19],
+        iframeScale: 8.8,
+        modelScale: 0.086,
       };
     }
     // Default (desktop 1920x1080)
     return {
       distanceFactor: 1.17,
-      position: [0, 1.56, -1.4],
-      iframeScale: 1,
+      position: [-1.5, 10.8, -19],
+      iframeScale: 10.2,
+      modelScale: 0.078,
     };
   }, [isMobile, isTablet, isLargeScreen, is4K]);
 
@@ -76,8 +84,8 @@ export default function Project1() {
       <PresentationControls
         global
         rotation={[0.13, 0.1, 0]}
-        polar={[-0.4, 0.2]}
-        azimuth={[-1, 0.75]}
+        polar={[-0, 0]}
+        azimuth={[-0, 0]}
         damping={0.1}
         snap
       >
@@ -91,7 +99,7 @@ export default function Project1() {
           />
 
           <primitive
-            scale={isMobile ? 0.9 : 1}
+            scale={responsiveValues.modelScale}
             object={computer.scene}
             position-y={-1.2}
             position-x={0.5}
@@ -102,7 +110,7 @@ export default function Project1() {
               wrapperClass="htmlScreen"
               distanceFactor={responsiveValues.distanceFactor}
               position={responsiveValues.position}
-              rotation-x={-0.256}
+              rotation-x={-0.35}
               scale={responsiveValues.iframeScale}
               zIndexRange={[1, 1]}
             >
@@ -112,7 +120,7 @@ export default function Project1() {
         </Float>
       </PresentationControls>
 
-      <ContactShadows position-y={-1.4} opacity={0.4} scale={5} blur={2.4} />
+      <ContactShadows position-y={-2} opacity={0.4} scale={5} blur={2.4} />
     </Canvas>
   );
 }
